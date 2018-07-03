@@ -49,7 +49,7 @@ def shellrun(line):
 			if len(cmd) == 2:
 				name = cmd[1]
 			else:
-				print("[E] Invalid Argument"
+				print("[E] Invalid Argument")
 		elif cmd[0] == 'exit':
 			mode -= 1
 	elif mode == 3:

@@ -36,7 +36,7 @@ def shellrun(line):
 			return False
 	elif mode == 1:
 		if cmd[0] == 'config':
-			mode += 1)
+			mode += 1
 		elif cmd[0] == 'exit':
 			mode -= 1
 	elif mode == 2:

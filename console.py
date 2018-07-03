@@ -7,6 +7,8 @@ name = "ringnet"
 prompts = ['>', '#', '(config)#', '(config-sock-recv)#', '(config-sock-send)#']
 mode = 0
 
+recv_port = 1890
+
 def console():
 	while True:
 		prompt = prompts[mode]
@@ -58,7 +60,9 @@ def shellrun(line):
 			if len(cmd) != 3:
 				print("[E] Invalid Argument")
 		elif cmd[0] == 'acpt':
-			th_recv = threading.Thread(target=recv.recv)
+			if len(cmd) == 2:	# ポート指定
+				port = int(cmd[1])
+			th_recv = threading.Thread(target=recv.recv, args=(port))
 			th_recv.setDaemon(True)
 			th_recv.start()
 	elif mode == 4:

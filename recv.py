@@ -1,8 +1,7 @@
 import socket
 
-def recv():
+def recv(port):
 	host = socket.gethostbyname(socket.gethostname())
-	port = 1890
 
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

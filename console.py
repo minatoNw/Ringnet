@@ -20,6 +20,7 @@ def shellrun(line):
 	global prompts
 	global mode
 	global name
+	global recv_port
 	cmd = line.split()
 	print(cmd)
 	if len(cmd) == 0:
@@ -61,8 +62,9 @@ def shellrun(line):
 				print("[E] Invalid Argument")
 		elif cmd[0] == 'acpt':
 			if len(cmd) == 2:	# ポート指定
-				port = int(cmd[1])
-			th_recv = threading.Thread(target=recv.recv, args=(port))
+				recv_port = int(cmd[1])
+
+			th_recv = threading.Thread(target=recv.recv, args=(recv_port,))
 			th_recv.setDaemon(True)
 			th_recv.start()
 	elif mode == 4:
